@@ -1,4 +1,4 @@
-# Automated-Reverse-Shell
+# Auto-Reverse-Shell
 
 Es un script en python muy simple que "acelera" el proceso a la hora de buscar una reverse shell.
 
