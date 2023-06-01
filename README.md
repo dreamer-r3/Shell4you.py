@@ -4,5 +4,5 @@ Es un script en python muy simple que "acelera" el proceso a la hora de buscar u
 
 Se solicita una IP y un Puerto, listo!
 
-![autoshell](https://user-images.githubusercontent.com/131263019/234382591-0026cf2e-187c-4d34-b28b-14a1aff77740.png)
+![autoshell](https://github.com/Sx1v4n/Auto-Reverse-Shell/assets/131263019/f4e3d9dc-dd14-4004-bc1b-20e6810f1a03)
 
