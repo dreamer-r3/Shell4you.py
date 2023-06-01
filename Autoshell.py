@@ -144,7 +144,7 @@ def showall():
 while True:
     shell_menu()
     print(Fore.RED + '----------------------'+ Fore.RESET)
-    print('Created By Aka. Shadow')
+    print('Developed By S.x1v4n')
     print(Fore.RED + '----------------------'+ Fore.RESET)
     choice = input('Enter your choice [1-10]: ')
     
