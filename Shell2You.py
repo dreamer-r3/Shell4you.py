@@ -112,7 +112,7 @@ def main():
 
     while True:
         print("\n1.Bash - 2.PHP - 3.Python - 4.Netcat - 5. Ruby - 6.Perl - 7.Xterm - 8.Java - 9.Node.js - 10.All - 11.Quit")
-        choice = input("\nEnter your choice [0-11]: ")
+        choice = input("\nEnter your choice [1-11]: ")
 
         if choice == '11':
             print("Quitting the program.")
