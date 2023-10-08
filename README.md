@@ -1,8 +1,8 @@
-# Auto-Reverse-Shell
+# Shell2You
 
-Es un script en python muy simple que "acelera" el proceso a la hora de buscar una reverse shell.
-
-Se solicita una IP y un Puerto, listo!
-
-![autoshell](https://github.com/Sx1v4n/Auto-Reverse-Shell/assets/131263019/f4e3d9dc-dd14-4004-bc1b-20e6810f1a03)
+## Features
+- Encoded Shell
+- Auto Listen
+## Proof of Concept
+https://github.com/Sx1v4n/Shell2You.py/assets/131263019/89a4af77-b1e1-468f-8a7c-09d806543921
 
