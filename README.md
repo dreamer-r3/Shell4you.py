@@ -1,5 +1,3 @@
-# Shell2You.py
-
 ## Explanation
 It is a script that generates a reverse shell either encrypted or normal and a listener, the operation is simple, you request an IP address and a port, and ready, you can generate all the shells.
 ## Features
