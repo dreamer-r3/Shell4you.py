@@ -15,7 +15,7 @@ yellow = "\033[1;33m"
 def menu():
     print(red + '|-----------------------------|' + reset)
     print(red + '|   Welcome to Shell2you!     |' + reset)
-    print(red + '|       Dev By Ivan           |' + reset)
+    print(red + '|       Dev By 0x1v4n         |' + reset)
     print(red + '|-----------------------------|' + reset + "\n")
 
 def validate_ip(ip):
